@@ -14,11 +14,6 @@ class Register extends Model
     public static $rules = array(
         'content' => 'required | string | min: 0 | max: 190'
     );
-    public function getDetail()
-    {
-        $txt = $this->content;
-        return $txt;
-    }
 }
 
 

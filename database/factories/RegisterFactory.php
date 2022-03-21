@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Register;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class RegisterFactory extends Factory
@@ -12,7 +13,7 @@ class RegisterFactory extends Factory
     public function definition()
     {
         return [
-            'content' => $this->faker->text(max_nb_chars=7)
+            'content' => $this->faker->realtext($maxnbchars = 10)
         ];
     }   
 }

@@ -9,9 +9,9 @@
 
 <body>
   <h2>Todo List</h2>
-  <form action="find" method="POST">
+  <form action="/todo/create" method="POST">
   @csrf
-  <input type="text" name="input">
+  <input type="text" name="content">
   <input type="submit" value="追加">
   </form>
   <table>

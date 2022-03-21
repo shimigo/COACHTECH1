@@ -14,7 +14,7 @@ class CreateRegistersTable extends Migration
     public function up()
     {
         Schema::create('registers', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->length(20)->primary();
+            $table->id();
             $table->string('content', 191);
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
