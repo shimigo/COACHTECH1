@@ -27,7 +27,19 @@
         {{$item->created_at}}
       </td>
       <td>
-        {{$item->content}}
+      <input type="text" name="content" value="{{$item->content}}">
+      </td>
+      <td>
+      <form action="/todo/update" method="POST">
+        @csrf
+      <input type="submit" value="更新">
+      </from>
+      </td>
+      <td>
+      <form action="/todo/delete" method="POST">
+        @csrf
+      <input type="submit" value="削除">
+      </form>    
       </td>
     </tr>
     @endforeach

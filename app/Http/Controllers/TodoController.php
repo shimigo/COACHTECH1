@@ -15,8 +15,16 @@ class TodoController extends Controller
     public function create(Request $request)
     {
         $this->validate($request, Register::$rules);
-        $form = $request->all();
-        Register::create($form);
+        $item = $request->all();
+        Register::create($item);
+        return redirect('/');
+    }
+     public function update(Request $request)
+    {
+        $this->validate($request, Register::$rules);
+        $item = $request->all();
+        unset($item['_token']);
+        Register::where('id', $request->id)->update($item);
         return redirect('/');
     }
 }
