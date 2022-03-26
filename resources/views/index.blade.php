@@ -30,14 +30,16 @@
       <input type="text" name="content" value="{{$item->content}}">
       </td>
       <td>
-      <form action="/todo/update" method="POST">
+      <form action="todo/update/{{$item->id}}" method="post">
         @csrf
+      <input type="text" name="content" value="{{$item->content}}">
       <input type="submit" value="更新">
       </from>
       </td>
       <td>
-      <form action="/todo/delete" method="POST">
+      <form action="todo/delete/{{ $item->id }}" method="post">
         @csrf
+     
       <input type="submit" value="削除">
       </form>    
       </td>
