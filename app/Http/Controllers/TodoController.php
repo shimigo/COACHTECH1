@@ -19,14 +19,16 @@ class TodoController extends Controller
         Register::create($item);
         return redirect('/');
     }
-    function update(Request $request, $id){
+    public function update(Request $request, $id){
     
+        $this->validate($request, Register::$rules);
         $form = $request->all(); // 更新された値
         unset($form['_token']); // いらないカラムを削除
         $register = Register::where('id', $id)->update($form); //Register::fin($id)で該当のデータを探す。で、更新された値の中から$idに当たる値を読んで、変数$registerに代入。更新する
         return redirect('/');
     }
-    function delete(Request $request, $id){
-            return $request->id; // 更新された値 
+    public function delete(Request $request, $id){  
+        Register::find($request->id)->delete($id);
+        return redirect('/');    
     }
 }

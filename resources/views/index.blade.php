@@ -21,25 +21,27 @@
       <th>更新</th>
       <th>削除</th>
     </tr>
+    @foreach ($errors->all() as $error)
+    <li>
+    {{$error}}
+    </li>
+    @endforeach
+    
     @foreach ($items as $item)
     <tr>
       <td>
         {{$item->created_at}}
-      </td>
-      <td>
-      <input type="text" name="content" value="{{$item->content}}">
-      </td>
+      </td>    
       <td>
       <form action="todo/update/{{$item->id}}" method="post">
         @csrf
       <input type="text" name="content" value="{{$item->content}}">
       <input type="submit" value="更新">
-      </from>
+      </form>
       </td>
       <td>
       <form action="todo/delete/{{ $item->id }}" method="post">
         @csrf
-     
       <input type="submit" value="削除">
       </form>    
       </td>
