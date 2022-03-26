@@ -27,6 +27,6 @@ class TodoController extends Controller
         return redirect('/');
     }
     function delete(Request $request, $id){
-            return $request->id; // 更新された値 // 更新された値
+            return $request->id; // 更新された値 
     }
 }
